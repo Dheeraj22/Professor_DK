@@ -1,0 +1,238 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/*font-family: 'Oswald', sans-serif;*/
+/*font-family: 'Sedgwick Ave Display', cursive;*/
+
+/* General Layout Structure */
+
+body{
+  margin: 20px;
+}
+
+li{
+  line-height: 40px;
+  padding: 0;
+}
+
+li a{
+  text-decoration: none;
+  display: block;
+  color: #7E57C2;
+}
+
+li a:hover{
+  color: #D81B60;
+}
+
+
+h2 {
+  color: #7E57C2;
+  position: absolute;
+  left: 10px;
+  top: 100px;
+  margin-left: 180px;
+  font-family: 'Droid Sans', arial, serif;
+  font-size: 36px;
+}
+
+h5 {
+  color: #311B92;
+  position: absolute;
+  left: 10px;
+  top: 150px;
+  margin-left: 180px;
+  font-family: 'Droid Sans', arial, serif;
+  font-size: 15px;
+}
+
+h3 {
+  color: #455A64;
+  margin-left: 60px;
+  position: relative;
+  top: 40px;
+  font-family: 'Droid Sans', arial, serif;
+  font-size: 36px;
+}
+
+p {
+  color: #607D8B;
+  line-height: 22px;
+  justify-content: center;
+  font-family: arial, serif;
+}
+
+ul{
+  list-style: none;
+  padding-left: 60px;
+  padding-bottom: 20px;
+  text-align: left;
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+}
+
+.Logoholder{
+  background-color: #F5F5F5;
+  height: auto;
+  padding-bottom:20px;
+}
+
+.Logoholder img{
+  height: 100px;
+  width: 100px;
+  position: relative;
+  padding-top: 60px;
+  padding-left: 60px;
+}
+
+.Logoholder nav{
+  list-style: none;
+  position: absolute;
+  right: 20px;
+  top: 50px;
+}
+
+.Logoholder nav li{
+  display: inline-block;
+  float: left;
+  padding: 80px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+}
+
+.Introduction{
+  height: auto;
+  width: 700px;
+}
+
+.Introduction p{
+  padding-left: 60px;
+  padding-top: 60px;
+}
+
+.Projects{
+  text-align: right;
+  margin-left: 700px;
+  background-color:  #F5F5F5;
+}
+
+.Projects h3{
+  text-align: left;
+}
+
+.Projects p{
+  text-align: left;
+  padding-left: 60px;
+  padding-top: 60px;
+  justify-content: center;
+}
+
+#tagline{
+  color: #37474F;
+  font-family: 'Sedgwick Ave Display', cursive;
+  margin-left: 60px;
+  padding-top: 30px;
+  letter-spacing: 2px;
+  padding-bottom: 60px;
+  font-size: 20px;
+}
