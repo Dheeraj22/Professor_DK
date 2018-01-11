@@ -112,7 +112,8 @@ body{
 
 li{
   line-height: 40px;
-  padding: 0;
+  padding: 0px;
+  margin: 0px;
 }
 
 li a{
@@ -158,14 +159,17 @@ h3 {
 p {
   color: #607D8B;
   line-height: 22px;
+  padding: 0px;
+  margin: 0px;
   justify-content: center;
-  font-family: arial, serif;
+  font-family: 'Droid Sans', arial, serif;
 }
 
 ul{
   list-style: none;
   padding-left: 60px;
   padding-bottom: 20px;
+  margin: 0px;
   text-align: left;
   font-family: 'Oswald', sans-serif;
   font-size: 22px;
@@ -208,10 +212,10 @@ ul{
 .Introduction p{
   padding-left: 60px;
   padding-top: 60px;
+  font-family: 'Droid Sans', arial, serif;
 }
 
 .Projects{
-  text-align: right;
   margin-left: 700px;
   background-color:  #F5F5F5;
 }
@@ -221,10 +225,12 @@ ul{
 }
 
 .Projects p{
+  font-family: 'Droid Sans', arial, serif;
   text-align: left;
+  font-weight: 100;
   padding-left: 60px;
-  padding-top: 60px;
-  justify-content: center;
+  margin-top: 60px;
+  padding-bottom: 10px;
 }
 
 #tagline{
@@ -236,3 +242,15 @@ ul{
   padding-bottom: 60px;
   font-size: 20px;
 }
+
+#contactTitle{
+  position: relative;
+}
+
+#contactElem1{
+  position: relative;
+  top: 60px;
+  left: 60px;
+}
+
+#aboutp
