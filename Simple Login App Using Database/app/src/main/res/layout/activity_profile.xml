@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ivProfilePic"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -25,13 +25,14 @@
         android:id="@+id/tvProfileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="296dp"
+        android:layout_marginBottom="336dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Name: "
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -46,9 +47,10 @@
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfileName"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.095" />
 
     <TextView
         android:id="@+id/tvProfileEmail"
@@ -61,6 +63,7 @@
         android:textSize="22dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -74,9 +77,10 @@
         android:text="Edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.234" />
 
     <Button
         android:id="@+id/btnChangePassword"
