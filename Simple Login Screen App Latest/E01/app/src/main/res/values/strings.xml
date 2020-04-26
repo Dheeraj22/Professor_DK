@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Simple Login App</string>
+    <string name="attempts">Attempts Remaining: 5 </string>
+    <string name="input_text_hint">Enter password: </string>
+    <string name="login">Login</string>
+    <string name="attempts_remaining_5">Attempts Remaining: 5</string>
+    <string name="enter_name">Enter Name:</string>
+</resources>
