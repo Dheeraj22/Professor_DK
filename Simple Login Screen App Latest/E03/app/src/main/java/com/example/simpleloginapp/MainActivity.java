@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText ePassword;
     private TextView eAttemptsInfo;
     private Button eLogin;
-    private TextView eSignUp;
 
     /* Number of attempts is held in this counter */
     private int counter = 5;
@@ -26,8 +25,15 @@ public class MainActivity extends AppCompatActivity {
     String userName = "";
     String userPassword = "";
 
+    /* Create constant strings to hold the username and password */
+    private static final String USERNAME = "ADMIN";
+    private static final String PASSWORD = "123456";
+
     /* Flag used for validation */
     boolean isValid = false;
+
+    /* Get an object of Credentials Class */
+    Credentials credentials = new Credentials();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +45,12 @@ public class MainActivity extends AppCompatActivity {
         ePassword = findViewById(R.id.etPassword);
         eAttemptsInfo = findViewById(R.id.tvAttempts);
         eLogin = findViewById(R.id.btnLogin);
-        eSignUp = findViewById(R.id.tvRegister);
+
+        /* Set the credentials to be checked */
+        credentials.addCredentials("Dheeraj", "10");
+        credentials.addCredentials("John", "11");
+        credentials.addCredentials("Mark", "12");
+        credentials.addCredentials("Jim", "13");
 
         /* Describe the logic when the login button is clicked */
         eLogin.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 }else {
 
                     /* Validate the user inputs */
-                    isValid = RegistrationActivity.credentials.checkCredentials(userName, userPassword);
+                    isValid = credentials.checkCredentials(userName, userPassword);
 
                     /* Validate the user inputs */
 
@@ -90,14 +101,6 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
-            }
-        });
-
-        /* Go to Registration Activity when SignUp is clicked */
-        eSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
             }
         });
     }
