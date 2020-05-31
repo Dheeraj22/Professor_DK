@@ -19,7 +19,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button eRegister;
 
     /* Create an object of the class Credentials */
-    public static Credentials credentials = new Credentials();
+    public static Credentials credentials;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 if(validate(registeredName, registeredPassword))
                 {
                     /* Add the credentials into our database */
-                    credentials.addCredentials(registeredName, registeredPassword);
+                    credentials = new Credentials(registeredName, registeredPassword);
                     Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
 
                     /* Go to Login Activity */
