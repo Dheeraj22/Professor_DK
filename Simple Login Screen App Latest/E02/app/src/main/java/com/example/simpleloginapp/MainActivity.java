@@ -21,19 +21,11 @@ public class MainActivity extends AppCompatActivity {
     /* Number of attempts is held in this counter */
     private int counter = 5;
 
-    /* Strings to hold user inputs */
-    String userName = "";
-    String userPassword = "";
-
-    /* Create constant strings to hold the username and password */
-    private static final String USERNAME = "ADMIN";
-    private static final String PASSWORD = "123456";
-
     /* Flag used for validation */
     boolean isValid = false;
 
     /* Get an object of Credentials Class */
-    Credentials credentials = new Credentials();
+    Credentials credentials = new Credentials("Admin", "12345678");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         eAttemptsInfo = findViewById(R.id.tvAttempts);
         eLogin = findViewById(R.id.btnLogin);
 
-        /* Set the credentials to be checked */
-        credentials.setName(USERNAME);
-        credentials.setPassword(PASSWORD);
+        /* Set the new credentials to be checked */
+        credentials.setUsername("Admin1");
+        credentials.setUserpassword("12345678");
 
         /* Describe the logic when the login button is clicked */
         eLogin.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 /* Obtain user inputs */
-                userName = eName.getText().toString();
-                userPassword = ePassword.getText().toString();
+                String userName = eName.getText().toString();
+                String userPassword = ePassword.getText().toString();
 
                 /* Check if the user inputs are empty */
                 if(userName.isEmpty() || userPassword.isEmpty())
@@ -107,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean validate(String userName, String userPassword)
     {
         /* Check the credentials */
-        if(userName.equals(credentials.getName()) && userPassword.equals(credentials.getPassword()))
+        if(userName.equals(credentials.getUsername()) && userPassword.equals(credentials.getUserpassword()))
         {
             return true;
         }

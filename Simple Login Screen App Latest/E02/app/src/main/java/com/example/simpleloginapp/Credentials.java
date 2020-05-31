@@ -1,28 +1,32 @@
 package com.example.simpleloginapp;
 
-import java.util.HashMap;
-
 public class Credentials {
 
     /* Set default values for credentials */
-    private String name = "Admin";
-    private String password = "123456";
+    private String Username;
+    private String Userpassword;
+
+    /* Constructor */
+    Credentials(String username, String userpassword){
+        this.Username = username;
+        this.Userpassword = userpassword;
+    }
 
     /* Getters and Setters for name and password */
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return Username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        Username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserpassword() {
+        return Userpassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserpassword(String userpassword) {
+        Userpassword = userpassword;
     }
 }
