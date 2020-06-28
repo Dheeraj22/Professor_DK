@@ -24,8 +24,8 @@ public class RegistrationActivity extends AppCompatActivity {
     public static Credentials credentials = new Credentials();
 
     /* Local Storage variables */
-    public static SharedPreferences sharedPreferences;
-    public static SharedPreferences.Editor sharedPreferencesEditor;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor sharedPreferencesEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

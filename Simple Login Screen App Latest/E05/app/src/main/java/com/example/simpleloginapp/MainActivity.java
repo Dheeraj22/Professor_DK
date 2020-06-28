@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView eAttemptsInfo;
     private Button eLogin;
     private TextView eSignUp;
+    private CheckBox eRememberMe;
 
     /* Number of attempts is held in this counter */
     private int counter = 5;
@@ -32,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
     /* Flag used for validation */
     boolean isValid = false;
+
+    /* Variables for storing data persistently */
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor sharedPreferencesEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +51,32 @@ public class MainActivity extends AppCompatActivity {
         eAttemptsInfo = findViewById(R.id.tvAttempts);
         eLogin = findViewById(R.id.btnLogin);
         eSignUp = findViewById(R.id.tvRegister);
+        eRememberMe = findViewById(R.id.cbRemember);
 
-        /* Retrieve the local copy of Credentials */
-        RegistrationActivity.sharedPreferences = getApplicationContext().getSharedPreferences("CredentialDB", Context.MODE_PRIVATE);
+        /* Create a sharedpreferences file to hold our values in local phone offline storage */
+        sharedPreferences = getApplicationContext().getSharedPreferences("CredentialDB", Context.MODE_PRIVATE);
+
+        sharedPreferencesEditor = sharedPreferences.edit();
 
         /* If the retrieved local copy isn't NULL, add logic */
-        if(RegistrationActivity.sharedPreferences != null)
+        if(sharedPreferences != null)
         {
             /* Retrieve all records from the local file */
-            Map<String, ?> allEntries = RegistrationActivity.sharedPreferences.getAll();
+            Map<String, ?> allEntries = sharedPreferences.getAll();
 
             /* Loop through each record and add to credentials */
             for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
                 RegistrationActivity.credentials.addCredentials(entry.getKey(), entry.getValue().toString());
+            }
+
+            if(sharedPreferences.getBoolean("RememberMeCheckBox", false)){
+
+                String savedUsername = sharedPreferences.getString("Username", "");
+                String savedPassword = sharedPreferences.getString("Password", "");
+
+                eName.setText(savedUsername);
+                ePassword.setText(savedPassword);
+                eRememberMe.setChecked(true);
             }
         }
 
@@ -103,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                     /* If valid */
                     else {
+
+                        /* Save the checkbox remember me state */
+                        sharedPreferencesEditor.putBoolean("RememberMeCheckBox", eRememberMe.isChecked());
+
+                        if(eRememberMe.isChecked()){
+                            sharedPreferencesEditor.putString("Username", eName.getText().toString());
+                            sharedPreferencesEditor.putString("Password", ePassword.getText().toString());
+                        }
+
+                        sharedPreferencesEditor.apply();
 
                         /* Allow the user in to your app by going into the next activity */
                         startActivity(new Intent(MainActivity.this, HomePageActivity.class));
