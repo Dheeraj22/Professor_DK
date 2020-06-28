@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.simpleloginapp">
+    package="com.example.loginapplication">
 
     <application
         android:allowBackup="true"

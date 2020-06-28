@@ -7,10 +7,10 @@
     tools:context=".HomePageActivity">
 
     <TextView
-        android:id="@+id/tvSuccessInfo"
+        android:id="@+id/tvWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to my App"
+        android:text="Welcome to the new activity!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
