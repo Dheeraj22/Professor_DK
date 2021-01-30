@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Map;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     private EditText eRegName;
     private EditText eRegPassword;
     private Button eRegister;
 
-    public static Credentials credentials;
+    public Credentials credentials;
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor sharedPreferencesEditor;
@@ -30,8 +32,19 @@ public class RegistrationActivity extends AppCompatActivity {
         eRegPassword = findViewById(R.id.etRegPassword);
         eRegister = findViewById(R.id.btnRegister);
 
+        credentials = new Credentials();
+
         sharedPreferences = getApplicationContext().getSharedPreferences("CredentialsDB", MODE_PRIVATE);
         sharedPreferencesEditor = sharedPreferences.edit();
+
+        if(sharedPreferences != null){
+
+            Map<String, ?> preferencesMap = sharedPreferences.getAll();
+
+            if(preferencesMap.size() != 0){
+                credentials.loadCredentials(preferencesMap);
+            }
+        }
 
         eRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,17 +54,23 @@ public class RegistrationActivity extends AppCompatActivity {
                 String regPassword = eRegPassword.getText().toString();
 
                 if(validate(regUsername, regPassword)) {
-                    credentials = new Credentials(regUsername, regPassword);
 
-                    /* Store the credentials */
-                    sharedPreferencesEditor.putString("Username", regUsername);
-                    sharedPreferencesEditor.putString("Password", regPassword);
+                    if(credentials.checkUsername(regUsername)){
+                        Toast.makeText(RegistrationActivity.this, "Username already taken!", Toast.LENGTH_SHORT).show();
+                    }else{
 
-                    /* Commits the changes and adds them to the file */
-                    sharedPreferencesEditor.apply();
+                        credentials.addCredentials(regUsername, regPassword);
 
-                    startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
-                    Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                        /* Store the credentials */
+                        sharedPreferencesEditor.putString(regUsername, regPassword);
+                        sharedPreferencesEditor.putString("LastSavedUsername", "");
+                        sharedPreferencesEditor.putString("LastSavedPassword", "");
+
+                        /* Commits the changes and adds them to the file */
+                        sharedPreferencesEditor.apply();
+
+                        startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                    }
                 }
             }
         });
