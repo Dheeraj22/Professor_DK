@@ -1,2 +1,2 @@
-rootProject.name='Simple Login App'
+rootProject.name='LoginApplication'
 include ':app'
